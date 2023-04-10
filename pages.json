@@ -2,7 +2,7 @@
 	"pages": [{
 		"path": "pages/home/home",
 		"style": {
-			"navigationBarTitleText": "",
+			"navigationBarTitleText": "惠友到家",
 			"enablePullDownRefresh": false
 		}
 
@@ -26,38 +26,61 @@
 			"navigationBarTitleText": "",
 			"enablePullDownRefresh": false
 		}
+
 	}],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "惠友到家",
+		"navigationBarBackgroundColor": "#E43D33",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
 	"tabBar": {
-		"selectedColor": "#E43D33",
 		"list": [{
-				"pagePath": "pages/home/home",
 				"text": "首页",
+				"pagePath": "pages/home/home",
 				"iconPath": "static/tab_icons/home.png",
 				"selectedIconPath": "static/tab_icons/home-active.png"
 			},
 			{
-				"pagePath": "pages/cate/cate",
 				"text": "分类",
+				"pagePath": "pages/cate/cate",
 				"iconPath": "static/tab_icons/cate.png",
 				"selectedIconPath": "static/tab_icons/cate-active.png"
 			},
 			{
-				"pagePath": "pages/shop/shop",
 				"text": "购物车",
+				"pagePath": "pages/shop/shop",
 				"iconPath": "static/tab_icons/cart.png",
 				"selectedIconPath": "static/tab_icons/cart-active.png"
 			},
 			{
-				"pagePath": "pages/my/my",
 				"text": "我的",
+				"pagePath": "pages/my/my",
 				"iconPath": "static/tab_icons/my.png",
 				"selectedIconPath": "static/tab_icons/my-active.png"
 			}
-		],
-		"globalStyle": {
-			"navigationBarTextStyle": "white",
-			"navigationBarTitleText": "惠友到家",
-			"navigationBarBackgroundColor": "#E43D33"
-		}
-	}
+		]
+	},
+	"subPackages": [{
+		"root": "subpkg",
+		"pages": [{
+			"path": "goods-detail/goods-detail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}    ,{
+                    "path" : "goods-list/goods-list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+	}]
 }
