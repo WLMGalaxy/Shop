@@ -79,7 +79,7 @@
 				}
 			},
 			// 获取楼层数据
-			getFloorList: async function() {
+			async getFloorList() {
 				const res = await uni.$http.get('/floors')
 				const {
 					data: {
