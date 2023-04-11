@@ -27,7 +27,8 @@
 			"enablePullDownRefresh": false
 		}
 
-	}],
+	}
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "惠友到家",
@@ -74,6 +75,15 @@
 			}
 		}    ,{
                     "path" : "goods-list/goods-list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "goods-search/goods-search",
                     "style" :                                                                                    
                 {
                     "navigationBarTitleText": "",

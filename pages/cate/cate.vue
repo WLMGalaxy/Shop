@@ -1,20 +1,28 @@
 <template>
-	<view class="cate-container">
-		<scorll-view scroll-y :style="{height:h+'px'}" class="cate-left">
-			<block v-for="(cateItem,i) in cateList" :key="i">
-				<view :class="['cate-item-left',i===active?'active':'']" @click="changeNav(i)">{{cateItem.cateName}}
+	<!-- 分类页面 -->
+	<view>
+		<view>
+			<Search></Search>
+		</view>
+		<view class="cate-container">
+			<!-- 左侧导航 -->
+			<scorll-view scroll-y :style="{height:h+'px'}" class="cate-left">
+				<block v-for="(cateItem,i) in cateList" :key="i">
+					<view :class="['cate-item-left',i===active?'active':'']" @click="changeNav(i)">{{cateItem.cateName}}
+					</view>
+				</block>
+			</scorll-view>
+			<!-- 右侧商品 -->
+			<scorll-view scroll-y :style="{height:h+'px'}" class="cate-right">
+				<view class="pro-content" v-for="(goodItem,goodIndex) in goodsList" :key="goodIndex">
+					<image src="pro-pic" :src="goodItem.picUrl" class="pro-pic"></image>
+					<view class="pro-right">
+						<view class="pro-name">{{goodIndex.pname}}</view>
+						<view class="pro-price">价格：{{goodItem.price}}</view>
+					</view>
 				</view>
-			</block>
-		</scorll-view>
-		<scorll-view scroll-y :style="{height:h+'px'}" class="cate-right">
-			<view class="pro-content" v-for="(goodItem,goodIndex) in goodsList" :key="goodIndex">
-				<image src="pro-pic" :src="goodItem.picUrl" class="pro-pic"></image>
-				<view class="pro-right">
-					<view class="pro-name">{{goodIndex.pname}}</view>
-					<view class="pro-price">价格：{{goodItem.price}}</view>
-				</view>
-			</view>
-		</scorll-view>
+			</scorll-view>
+		</view>
 	</view>
 </template>
 
@@ -29,6 +37,7 @@
 			};
 		},
 		methods: {
+			// 获取商品分类信息
 			async getCateList() {
 				const res = await uni.$http.get('/cates')
 				const {
@@ -54,12 +63,18 @@
 				this.active = i
 				// 点击左侧分类切换的时候把当前项的分类下面的所有商品数据赋值
 				this.goodsList = this.cateList[i].children
-			}
+			},
+			// 搜索框的事件
+			// goTosearch:function(){
+			// 	uni.navigateTo({
+			// 		url:'../../subpkg/goods-search/goods-search'
+			// 	})
+			// }
 		},
 		onLoad: function() {
 			const systemInfo = uni.getSystemInfoSync() // 获取设备相关的信息
 			const systemHight = systemInfo.windowHeight // 获取设备的页面高度
-			this.h = systemHight
+			this.h = systemHight - 100
 			// 获取商品分类信息
 			this.getCateList()
 		}
@@ -118,7 +133,6 @@
 				flex: 1;
 				padding-left: 20rpx;
 			}
-
 		}
 	}
 </style>

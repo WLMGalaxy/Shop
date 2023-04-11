@@ -1,5 +1,9 @@
 <template>
 	<view>
+		<!-- 搜索组件 -->
+		<view class="home-search-container">
+			<Search></Search>
+		</view>
 		<!-- 轮播 -->
 		<swiper class="swiper-home" indicator-dots="true" autoplay="true" interval="2000" circular="true"
 			indicator-color="#000" indicator-active-color="#FF0000">
@@ -33,6 +37,7 @@
 				</view>
 			</view>
 		</view>
+		
 	</view>
 </template>
 
@@ -102,7 +107,7 @@
 					this.floorList = floorList
 				}
 			},
-			// 跳转到分类页面
+			// 跳转到分类页面	
 			goToCate: function(cateItem) {
 				if (cateItem.cateName == "分类") {
 					uni.switchTab({
@@ -110,6 +115,12 @@
 					})
 				}
 			},
+			// 搜索框的事件
+			// goToSearch: function() {
+			// 	uni.navigateTo({
+			// 		url: '../../subpkg/goods-search/goods-search'
+			// 	})
+			// }
 		},
 		onLoad() {
 			// 调用获取数据方法
@@ -201,5 +212,11 @@
 				}
 			}
 		}
+	}
+
+	.home-search-container {
+		position: sticky;
+		top: 0;
+		z-index: 999;
 	}
 </style>
